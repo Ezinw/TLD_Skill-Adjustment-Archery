@@ -2,8 +2,10 @@
 
 - A mod for The Long Dark that allows you to adjust the archery skill benefits for each skill level.
 
+- All changes made in game require a game reload to take effect.
+
 Requirements:
-- [The Long Dark](https://www.thelongdark.com/) (Game version 2.24)
+- [The Long Dark](https://www.thelongdark.com/) (Game version 2.25)
 - [MelonLoader](https://github.com/LavaGang/MelonLoader/) (0.6.1)
 - [ModSettings](https://github.com/DigitalzombieTLD/ModSettings/releases/)
 
