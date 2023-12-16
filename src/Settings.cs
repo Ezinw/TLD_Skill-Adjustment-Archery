@@ -1,4 +1,4 @@
-﻿using ModSettings;
+using ModSettings;
 using System.Reflection;
 
 namespace SkillAdjustmentArchery
@@ -28,7 +28,7 @@ namespace SkillAdjustmentArchery
 
         [Name("          Damage Increase")]
         [Description("Increase Damage. (Game default = 0%)")]
-        [Slider(0, 100)]
+        [Slider(0, 200)]
         public int Damage0 = 0;
 
         [Name("          Critical Hit Chance")]
@@ -38,7 +38,7 @@ namespace SkillAdjustmentArchery
 
         [Name("          Bleed Out Time Reduction")]
         [Description("Increase the time for animals to bleed out. (Game default = 0%)")]
-        [Slider(0, 100)]
+        [Slider(0, 200)]
         public int BleedOut0 = 0;
 
         [Name("          Condition loss")]
@@ -51,6 +51,11 @@ namespace SkillAdjustmentArchery
         [Choice("+", "-")]
         public bool Archery2 = false;
 
+        [Name("         - XP for level up")]
+        [Description("Set the number of skill points needed for next tier.(Game default = 15)")]
+        [Slider(15, 500)]
+        public int tier2 = 15;
+
         [Name("          Bow Sway Reduction")]
         [Description("Reduce bow sway. (Game default = 25%)")]
         [Slider(0, 100)]
@@ -58,7 +63,7 @@ namespace SkillAdjustmentArchery
 
         [Name("          Damage Increase")]
         [Description("Increase Damage. (Game default = 10%)")]
-        [Slider(0, 100)]
+        [Slider(0, 200)]
         public int Damage1 = 10;
 
         [Name("          Critical Hit Chance")]
@@ -68,7 +73,7 @@ namespace SkillAdjustmentArchery
 
         [Name("          Bleed Out Time Reduction")]
         [Description("Increase the time for animals to bleed out. (Game default = 0%)")]
-        [Slider(0, 100)]
+        [Slider(0, 200)]
         public int BleedOut1 = 0;
 
         [Name("          Condition loss")]
@@ -81,6 +86,11 @@ namespace SkillAdjustmentArchery
         [Choice("+", "-")]
         public bool Archery3 = false;
 
+        [Name("         - XP for level up")]
+        [Description("Set the number of skill points needed for next tier.(Game default = 40)")]
+        [Slider(40, 500)]
+        public int tier3 = 40;
+
         [Name("          Bow Sway Reduction")]
         [Description("Reduce bow sway. (Game default = 50%)")]
         [Slider(0, 100)]
@@ -88,7 +98,7 @@ namespace SkillAdjustmentArchery
 
         [Name("          Damage Increase")]
         [Description("Increase Damage. (Game default = 10%)")]
-        [Slider(0, 100)]
+        [Slider(0, 200)]
         public int Damage2 = 10;
 
         [Name("          Critical Hit Chance")]
@@ -98,8 +108,8 @@ namespace SkillAdjustmentArchery
 
         [Name("          Bleed Out Time Reduction")]
         [Description("Increase the time for animals to bleed out. (Game default = 0%)")]
-        [Slider(0, 100)]
-        public int BleedOut2 = 0;
+        [Slider(0, 200)]
+         public int BleedOut2 = 0;
 
         [Name("          Condition loss")]
         [Description("Reduce the amount of condition loss each use. (Game default = 0%)")]
@@ -111,6 +121,11 @@ namespace SkillAdjustmentArchery
         [Choice("+", "-")]
         public bool Archery4 = false;
 
+        [Name("         - XP for level up")]
+        [Description("Set the number of skill points needed for next tier.(Game default = 75)")]
+        [Slider(75, 500)]
+        public int tier4 = 75;
+
         [Name("          Bow Sway Reduction")]
         [Description("Reduce bow sway. (Game default = 75%)")]
         [Slider(0, 100)]
@@ -118,7 +133,7 @@ namespace SkillAdjustmentArchery
 
         [Name("          Damage Increase")]
         [Description("Increase Damage. (Game Default = 10%)")]
-        [Slider(0, 100)]
+        [Slider(0, 200)]
         public int Damage3 = 10;
 
         [Name("          Critical Hit Chance")]
@@ -128,7 +143,7 @@ namespace SkillAdjustmentArchery
 
         [Name("          Bleed Out Time Reduction")]
         [Description("Increase the time for animals to bleed out. (Game default = 25%)")]
-        [Slider(0, 100)]
+        [Slider(0, 200)]
         public int BleedOut3 = 25;
 
         [Name("          Condition loss")]
@@ -141,6 +156,11 @@ namespace SkillAdjustmentArchery
         [Choice("+", "-")]
         public bool Archery5 = false;
 
+        [Name("         - XP for level up")]
+        [Description("Set the number of skill points needed for next tier.(Game default = 125)")]
+        [Slider(125, 625)]
+        public int tier5 = 125;
+
         [Name("          Bow Sway Reduction")]
         [Description("Reduce bow sway. (Game default = 75%)")]
         [Slider(0, 100)]
@@ -148,7 +168,7 @@ namespace SkillAdjustmentArchery
 
         [Name("          Damage Increase")]
         [Description("Increase Damage. (Game default = 25%)")]
-        [Slider(0, 100)]
+        [Slider(0, 200)]
         public int Damage4 = 25;
 
         [Name("          Critical Hit Chance")]
@@ -158,7 +178,7 @@ namespace SkillAdjustmentArchery
 
         [Name("          Bleed Out Time Reduction")]
         [Description("Increase the time for animals to bleed out. (Game default = 50%)")]
-        [Slider(0, 100)]
+        [Slider(0, 200)]
         public int BleedOut4 = 50;
 
         [Name("          Condition loss")]
@@ -182,7 +202,6 @@ namespace SkillAdjustmentArchery
 
         internal void RefreshFields()
         {
-            //ARCHERY
             SetFieldVisible(nameof(CrouchLevel), Archery);
 
             SetFieldVisible(nameof(Archery1), Archery);
@@ -198,6 +217,7 @@ namespace SkillAdjustmentArchery
             SetFieldVisible(nameof(Critical1), (Archery2) && Archery);
             SetFieldVisible(nameof(BleedOut1), (Archery2) && Archery);
             SetFieldVisible(nameof(PerUseConditionLoss1), (Archery2) && Archery);
+            SetFieldVisible(nameof(tier2), (Archery2) && Archery);
 
             SetFieldVisible(nameof(Archery3), Archery);
             SetFieldVisible(nameof(Sway2), (Archery3) && Archery);
@@ -205,6 +225,7 @@ namespace SkillAdjustmentArchery
             SetFieldVisible(nameof(Critical2), (Archery3) && Archery);
             SetFieldVisible(nameof(BleedOut2), (Archery3) && Archery);
             SetFieldVisible(nameof(PerUseConditionLoss2), (Archery3) && Archery);
+            SetFieldVisible(nameof(tier3), (Archery3) && Archery);
 
             SetFieldVisible(nameof(Archery4), Archery);
             SetFieldVisible(nameof(Sway3), (Archery4) && Archery);
@@ -212,6 +233,7 @@ namespace SkillAdjustmentArchery
             SetFieldVisible(nameof(Critical3), (Archery4) && Archery);
             SetFieldVisible(nameof(BleedOut3), (Archery4) && Archery);
             SetFieldVisible(nameof(PerUseConditionLoss3), (Archery4) && Archery);
+            SetFieldVisible(nameof(tier4), (Archery4) && Archery);
 
             SetFieldVisible(nameof(Archery5), Archery);
             SetFieldVisible(nameof(Sway4), (Archery5) && Archery);
@@ -219,6 +241,7 @@ namespace SkillAdjustmentArchery
             SetFieldVisible(nameof(Critical4), (Archery5) && Archery);
             SetFieldVisible(nameof(BleedOut4), (Archery5) && Archery);
             SetFieldVisible(nameof(PerUseConditionLoss4), (Archery5) && Archery);
+            SetFieldVisible(nameof(tier5), (Archery5) && Archery);
 
         }
 
